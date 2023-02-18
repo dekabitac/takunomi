@@ -1,0 +1,84 @@
+<main>
+  <div class= "container">
+    <div class = "row">
+      <div class= "col-12">
+        <h1 class= "text-center">ようこそ宅飲みへ<br>
+            ここではアナタの今日のお供を記録し、<br>
+            また新たな出会いを見つけることができる<br>
+            サイトになっています
+        </h1>
+      </div>
+    </div>
+    <div class= "row">
+      <div calss="col-12">
+        <table class ="table">
+          <tr>
+            <th>
+              <div class= "border rounded">
+                <h4 class= "text-box">
+                  お酒の種類で投稿を検索でき<br>
+                  好みのお酒を見つけることができます
+                </h4>
+              </div>
+            </th>
+            <th>
+              <div class= "border rounded">
+                <h4 class= "text-box">
+                  自宅でお酒を飲み<br>
+                  新たなお酒との出会いを<br>
+                  楽しみましょう
+                </h4>
+              </div>
+            </th>
+            <th>
+              <div class= "border rounded">
+                <h4 class= "text-box">
+                  お酒に溺れず、お酒に呑まれず<br>
+                  至福の時間<br>
+                  ただ自分の好きを増やしませんか？
+                </h4>
+              </div>
+            </th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class= "row">
+        <div class= "col-12">
+          <table class= "table-borderless">
+            <tr>
+              <th><h2 class= "bg-warning rounded">お酒の種類</h2></th>
+            </tr>
+            <tr>
+              <% @genres.each do |genre| %>
+                <td>
+                  <h3 class= "genre-index"><%= genre.genre_name %></h3>
+                </td>
+              <% end %>
+            </tr>
+          </table>
+        </div>
+      <div classd ="col-12">
+        <table class= "table link">
+          <tr>
+            <% unless customer_signed_in? %>
+            <th>
+              <button type= "button" class= "btn btn-primary">
+                <%= link_to "ログイン", new_customer_session_path, class: "text-light" %>
+              </button>
+            </th>
+            <th>
+              <button type= "button" class= "btn btn-success">
+                <%= link_to "新規登録", new_customer_registration_path, class: "text-light" %>
+              </button>
+            </th>
+            <th>
+              <%= link_to "投稿一覧はこちら＞", public_posts_path %>
+            </th>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

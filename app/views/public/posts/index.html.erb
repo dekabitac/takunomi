@@ -1,0 +1,43 @@
+<main class= "center">
+  <div class>
+    <%= flash[:notice] %>
+  </div>
+  <div class="contaner">
+    <div class="row">
+      <div class= "col-lg-2">
+        <div>
+          <%= link_to "投稿する", new_public_post_path, class: "btn btn-info" %>
+        </div>
+      </div>
+      <div class= "search">
+        <%= form_tag({controller:"posts", action:"index"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '検索' %>
+        <% end %>
+      </div>
+    <div class= "row">
+      <% @posts.each do |post| %>
+      <div class="col-3 post-index">
+        <div class= "border rounded">
+          <tr>
+            <th class= "post-image">
+              <%= link_to public_post_path(post.id) do %>
+                <% if post.image.attached? %>
+                  <%= image_tag post.image, size: "225x225" %>
+                <% else %>
+                  <%= image_tag 'no_image', size: "225x225" %>
+                <% end %>
+              <% end %>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <div class= "post-text"><%= post.post_text %></div>
+            </th>
+          </tr>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</main>

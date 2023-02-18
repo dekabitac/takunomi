@@ -1,0 +1,39 @@
+<main>
+  <div class= "container">
+    <div class= "row">
+      <div class= "col-12">
+        <h2>パスワードをお忘れですか?</h2>
+      </div>
+    </div>
+    <div class= "row">
+      <div class= "col-8">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <table class= "table">
+            <tr>
+              <th>
+                <%= render "public/shared/error_messages", resource: resource %>
+              <div class="field">
+                <%= f.label "メールアドレスを入力してください" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+               </div>
+              </th>
+            </tr>
+            <tr>
+              <th class= "text-center">
+                <div class="actions">
+                  <%= f.submit "パスワードを変更する" %>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th class= "log"><%= link_to "ログイン＞", new_customer_session_path %></th>
+              <th class= "log"><%= link_to "新規登録＞", new_customer_registration_path%></th>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+</main>

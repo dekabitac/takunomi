@@ -30,4 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  devise:
+    sessions:
+      signed_in: 'ログインしました'
+      signed_out: 'ログアウトしました'

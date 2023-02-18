@@ -1,0 +1,28 @@
+<main>
+  <div class= "container px-5 px-sm-0">
+    <div class= "row">
+      <div class= "col-md-4">
+        <% if @post.image.attached? %>
+          <%= image_tag @post.image, size: "300x300" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "300x300" %>
+        <% end %>
+      </div>
+      <div class= "col-md-8">
+        <h2>投稿編集</h2>
+        <table class= "table">
+          <thead>
+            <tr>
+              <th><%= @post.post_text %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= link_to "削除する", destroy_admin_post_path, method: :delete, class: "text-dark" %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

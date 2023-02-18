@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*ログイン画面レイアウト*/
+.titale {
+  margin-left: 200px;
+  width: 200px;
+  background-color: silver;
+}
+
+.email {
+  padding-left: 300px;
+  margin: 15px 0;
+}
+
+.field {
+  margin-left: 200px;
+}
+
+.password {
+  padding-left: 300px;
+  margin-bottom: 15px;
+}
+
+.remember {
+  margin-left: 500px;
+}
+
+.login {
+  margin-left: 500px;
+}
+
+.sign-up {
+  margin-top: 35px;
+  margin-left: 650px;
+}
+/**/
+/*新規登録レイアウト*/
+.user_name {
+  margin-left: 300px;
+}
+
+.confirmation {
+  margin-left: 300px;
+}
+
+.sign-in {
+  margin-top: 20px;
+  margin-left: 800px;
+}
+
+/**/

@@ -1,0 +1,31 @@
+<main>
+  <div class= "container px-5 px-sm-0">
+    <div class= "row">
+      <div class= "col-md-4">
+        <div class= "post-imagre">
+          
+        </div>
+        <% if @post.image.attached? %>
+          <%= image_tag @post.image, size: "300x300" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "300x300" %>
+        <% end %>
+      </div>
+      <div class= "col-md-8">
+        <h2>投稿詳細</h2>
+        <table class= "table">
+          <thead>
+            <tr>
+              <th><%= @post.post_text %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= link_to "編集する", edit_admin_post_path(@post.id), class: "btn btn-sm btn-success" %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

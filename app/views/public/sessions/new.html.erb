@@ -1,0 +1,25 @@
+<main>
+  <div class= "titale">
+    <h2 class= "border rounded ">ログイン</h2>
+  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class= "email">
+      <%= f.label "メールアドレス" %>
+      <div class= "field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+    <div class="password">
+      <%= f.label "パスワード" %>
+      <div class= "field">
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    </div>
+    <div class="login ">
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <div class= "sign-up">
+    <%= link_to "新規登録はこちら＞", new_customer_registration_path  %>
+  </div>
+</main>
