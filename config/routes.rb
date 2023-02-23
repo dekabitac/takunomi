@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :sessions, only: [:new, :create, :destroy]
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show, :destroy]
     resources :genres, only: [:index, :new, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
   end
@@ -45,5 +45,5 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/homes#top'
   get 'home/about' => 'public/homes#about', as: 'about'
   get "search" =>  "searches#search"
-  delete 'posts/:id' => 'posts#destroy'
+  
 end

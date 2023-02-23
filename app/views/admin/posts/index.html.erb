@@ -28,11 +28,13 @@
                     <% end %>
                   </th>
                 </tr>
+                <button type="button" class="btn btn-danger">
+                  <%= link_to '削除', admin_post_path(post), class: "text-white", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                </button>
                 <tr>
                   <th>
                     <div class= "post-text">
                       <%= post.post_text %>
-                      <%= link_to '削除', "/posts/#{post.id}", method: :delete %>
                     </div>
                   </th>
                 </tr>

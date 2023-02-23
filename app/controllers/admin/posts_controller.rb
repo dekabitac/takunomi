@@ -18,7 +18,6 @@ class Admin::PostsController < ApplicationController
       flash[:notice] = "投稿に失敗しました"
       redirect_to new_admin_post_path
     end
-
   end
 
   def show

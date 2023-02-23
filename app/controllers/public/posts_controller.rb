@@ -30,7 +30,8 @@ class Public::PostsController < ApplicationController
       redirect_to public_post_path(@post.id)
     else
       flash[:notice] = "投稿に失敗しました"
-      render :index
+       @genres = Genre.all
+      render :new
     end
   end
 
