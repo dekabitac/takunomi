@@ -8,11 +8,10 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :post_genres
 
   has_many :favorites, dependent: :destroy
-
+  
   validates :post_text, presence: true,
     length: { minimum: 1, maximum: 300 }
-
-
+  
 
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)

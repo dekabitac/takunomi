@@ -5,15 +5,15 @@
       <div class= "col-lg-10">
         <table class= "table">
           <tr>
-            <th>会員ID</th>
+            <th><h4>会員ID</h4></th>
             <td><%= @customer.id %></td>
           </tr>
           <tr>
-            <th>ユーザーネーム</th>
+            <th><h4>ユーザーネーム</h4></th>
             <td><%= @customer.user_name %></td>
           </tr>
           <tr>
-            <th>メールアドレス</th>
+            <th><h4>メールアドレス</h4></th>
             <td><%= @customer.email %></td>
           </tr>
           <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |customer| %>

@@ -1,6 +1,14 @@
 <main>
   <div class= "container">
     <div class= "row">
+      <% if @post.errors.any? %>
+        <%= @post.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <div class= "col-10">
         <%= form_with model: @post, url: public_posts_path, method: :post do |post| %>
         <table class= "new-post">
@@ -9,14 +17,22 @@
           </tr>
           <tr>
             <%= post.fields_for :post_genres do |genre| %>
-              <th class= "new-genre"><%= genre.collection_select :genre_id, @genres, :id, :genre_name, include_blank: '-- 選択してください --' %></th>
+              <th class= "new-genre">
+                <%= genre.label "ジャンル名" %>
+                <%= genre.collection_select :genre_id, @genres, :id, :genre_name, include_blank: '-- 選択してください --' %>
+              </th>
             <% end %>
           </tr>
           <tr>
-            <td class= "new-text"><%= post.text_area :post_text, size:"50x15" %></td>
+            <td class= "new-text">
+              <%= post.text_area :post_text, size:"50x15" %>
+              <%= post.label "投稿文(300文字以内)" %>
+            </td>
+          </tr>
+          <tr>
+            <th class= "center"><%= post.submit '新規登録', class: "btn btn-success" %></th>
           </tr>
         </table>
-        <div class="button"><%= post.submit '新規登録', class: "btn btn-success" %></div>
         <% end %>
       </div>
     </div>

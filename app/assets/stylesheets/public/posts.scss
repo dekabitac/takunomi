@@ -30,7 +30,6 @@
   height: 120px;
   font-size: 1em;
   line-height: 1.2;
-
 }
 /**/
 /*投稿詳細部*/
@@ -40,10 +39,6 @@
 }
 
 .post-image {
-  text-align: center;
-}
-
-.post-text {
   text-align: center;
 }
 
@@ -60,11 +55,11 @@
 }
 /**/
 /*投稿一覧部*/
-.post-index {
-  text-align: center;
-  padding-top: 30px;
-  margin: 0 auto;
-}
+.post {
+    margin: 10px;
+    padding-top: 8px;
+    border: solid 1px silver;
+  }
 
 .post-text {
   word-break: break-word;
@@ -76,7 +71,6 @@
   margin: 15px;
 }
 /**/
-
 .sutatus {
   display: flex;
   flex-direction: row;

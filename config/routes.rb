@@ -19,13 +19,15 @@ Rails.application.routes.draw do
     resources :registrations, only: [:new, :create]
     resources :sessions, only: [:new, :create, :destroy]
     resources :customers, only: [:show, :edit, :update] do
+      #member do
+        #get :favorites
+      #end
       collection do
         get '/customers/confirmation' => 'customers#confirmation'
         patch 'withdrawal'
       end
     end
     resources :posts
-    #resources :passwords, only: [:edit, :new]
     resource :favorites, only: [:create, :destroy]
   end
 
@@ -35,7 +37,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :sessions, only: [:new, :create, :destroy]
-    resources :posts
+    resources :posts, only: [:index, :show]
     resources :genres, only: [:index, :new, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
   end
@@ -43,5 +45,5 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/homes#top'
   get 'home/about' => 'public/homes#about', as: 'about'
   get "search" =>  "searches#search"
-
+  delete 'posts/:id' => 'posts#destroy'
 end

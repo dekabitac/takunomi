@@ -216,19 +216,28 @@ Devise.setup do |config|
   # Warn on the last attempt before the account is locked.
   # config.last_attempt_warning = true
 
+  # メールを送信するアドレス
+  config.mailer_sender = ENV["GOOGLE_MAIL_ADDRESS"]
+
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  # config.reset_password_keys = [:email]
+  
+  # パスワード再設定するためのキーカラム。
+  config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
+  
+  # リセットパスワードキーを使ってパスワードをリセットできる時間間隔。
   config.reset_password_within = 6.hours
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
-  # config.sign_in_after_reset_password = true
+  
+  #既定値はtrueで, リセットされた後に自動的にサインインする。
+  config.sign_in_after_reset_password = true
 
   # ==> Configuration for :encryptable
   # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
@@ -267,6 +276,7 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+  
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

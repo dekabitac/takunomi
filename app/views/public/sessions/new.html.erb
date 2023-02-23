@@ -1,25 +1,33 @@
 <main>
-  <div class= "titale">
-    <h2 class= "border rounded ">ログイン</h2>
-  </div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class= "email">
-      <%= f.label "メールアドレス" %>
-      <div class= "field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class= "container">
+    <div class= "row">
+      <div class= "col-6">
+        <h2 class= "border rounded bg-secondary ">ログイン</h2>
       </div>
     </div>
-    <div class="password">
-      <%= f.label "パスワード" %>
-      <div class= "field">
-        <%= f.password_field :password, autocomplete: "current-password" %>
+    <div class= "row">
+      <div class= "col-9">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <table class= "table">
+            <tr>
+              <th><%= f.label "メールアドレス" %></th>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <th><%= f.label "パスワード" %></th>
+              <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+            </tr>
+            <tr>
+              <th></th>
+              <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
+            </tr>
+            <tr>
+              <th><%= link_to "パスワードをお忘れですか？＞", new_customer_password_path %></th>
+              <td><%= link_to "新規登録はこちら＞", new_customer_registration_path  %></td>
+            </tr>
+          </table>
+        <% end %>
       </div>
     </div>
-    <div class="login ">
-      <%= f.submit "ログイン", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-  <div class= "sign-up">
-    <%= link_to "新規登録はこちら＞", new_customer_registration_path  %>
   </div>
 </main>
