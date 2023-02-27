@@ -6,6 +6,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-image: image-url("hoge.jpg");
+}
+
 /*新規投稿部*/
 .new-post {
   text-align: center;
