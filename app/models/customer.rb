@@ -4,7 +4,6 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :encrypted_password, length: { minimum: 6 }
   validates :user_name, presence: true,
     length: { minimum: 1, maximum: 15 }
   validates :email, presence: true

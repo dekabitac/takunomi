@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get '/admin/sign_out' => 'devise/sessions#destroy'
   end
 
-  namespace :public do
+  scope module: :public do
     resources :registrations, only: [:new, :create]
     resources :sessions, only: [:new, :create, :destroy]
     resources :customers, only: [:show, :edit, :update] do
@@ -45,5 +45,5 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/homes#top'
   get 'home/about' => 'public/homes#about', as: 'about'
   get "search" =>  "searches#search"
-  
+
 end
