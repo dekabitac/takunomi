@@ -24,22 +24,65 @@
           <% @posts.each do |post| %>
             <div class="col-3 post">
               <div>
-                <tr>
-                  <th class= "post-image">
-                    <%= link_to public_post_path(post.id) do %>
-                      <% if post.image.attached? %>
-                        <%= image_tag post.image, size: "225x225", class: "img-fluid" %>
-                      <% else %>
-                        <%= image_tag 'no_image', size: "225x225", class: "img-fluid" %>
+                <!-- 投稿画像 -->
+                  <tr>
+                    <th class= "post-image">
+                      <%= link_to public_post_path(post.id) do %>
+                        <% if post.image.attached? %>
+                          <%= image_tag post.image, size: "225x225", class: "img-fluid" %>
+                        <% else %>
+                          <%= image_tag 'no_image', size: "225x225", class: "img-fluid" %>
+                        <% end %>
                       <% end %>
+                    </th>
+                  </tr>
+                <!-- -->
+                <!-- 投稿文-->
+                  <tr>
+                    <th>
+                      <div class= "post-text"><%= post.post_text %></div>
+                    </th>
+                    <th>
+                      <% @post.genres.each do |genre| %>
+                        |<%= genre.genre_name %>|
+                      <% end %>
+                    </th>
+                  </tr>
+                <!-- -->
+                <!-- 投稿日時 -->
+                  <tr>
+                    <th class= "create_time"><%= @post.created_at.strftime('%Y/%m/%d') %></th>
+                  </tr>
+                <!-- いいね機能 -->
+                  <tr>
+                    <% if customer_signed_in? %>
+                      <th>
+                        <% if @post.favorited_by?(current_customer) %>
+                          <%= link_to public_favorites_path(post_id: @post.id), method: :delete do %>
+                            ♥<%= @post.favorites.count %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to public_favorites_path(post_id: @post.id), method: :post do %>
+                            ♡<%= @post.favorites.count %>
+                          <% end %>
+                        <% end %>
+                      </th>
+                      <td>
+                        <% if @customer == current_customer %>
+                          <button type="button" class="btn btn-danger">
+                            <%= link_to "削除", public_post_path(@post.id), class: "text-white", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                          </button>
+                        <% end %>
+                      </td>
+                      <% else %>
+                        <th>いいね機能を使用するにはログインしてください</th>
+                        <td>
+                          <%= link_to "ログインはこちら＞", new_customer_session_path %></br>
+                          <%= link_to "新規登録はこちら＞", new_customer_registration_path  %>
+                        </td>
                     <% end %>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <div class= "post-text"><%= post.post_text %></div>
-                  </th>
-                </tr>
+                  </tr>
+                <!-- --
               </div>
             </div>
           <% end %>
