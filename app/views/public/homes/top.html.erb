@@ -73,7 +73,7 @@
             <div>
               <tr>
                 <th>
-                  <%= link_to public_post_path(post.id) do %>
+                  <%= link_to posts_path(post.id) do %>
                     <% if post.image.attached? %>
                       <%= image_tag post.image, size: "225x225", class: "img-fluid" %>
                     <% else %>
@@ -91,7 +91,7 @@
       </div>
     </div>
     <div class= "col-lg-12">
-      <div class= "link"><%= link_to "すべての投稿を見る＞", public_posts_path %></div>
+      <div class= "link"><%= link_to "すべての投稿を見る＞", posts_path %></div>
     </div>
   </div>
 </main>
