@@ -7,7 +7,7 @@
       <!-- 新規投稿 -->
         <div class= "col-lg-2">
           <div>
-            <%= link_to "投稿する",posts_path, class: "btn btn-info" %>
+            <%= link_to "投稿する",new_post_path, class: "btn btn-info" %>
           </div>
         </div>
       <!---->
@@ -27,7 +27,7 @@
                 <!-- 投稿画像 -->
                   <tr>
                     <th class= "post-image">
-                      <%= link_to posts_path(post.id) do %>
+                      <%= link_to post_path(post.id) do %>
                         <% if post.image.attached? %>
                           <%= image_tag post.image, size: "225x225", class: "img-fluid" %>
                         <% else %>

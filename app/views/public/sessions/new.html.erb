@@ -7,7 +7,7 @@
     </div>
     <div class= "row">
       <div class= "col-9">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: customer_session_path(resource_name)) do |f| %>
           <table class= "table">
             <tr>
               <th><%= f.label "メールアドレス" %></th>
@@ -22,7 +22,7 @@
               <td><%= f.submit "ログイン", class: "btn btn-primary" %></td>
             </tr>
             <tr>
-              <!-- <th><#%= link_to "パスワードをお忘れですか？＞", new_customer_password_path %></th> -->
+              <!-- <th><%#= link_to "パスワードをお忘れですか？＞", new_customer_password_path %></th> -->
               <td><%= link_to "新規登録はこちら＞", new_customer_registration_path  %></td>
             </tr>
           </table>

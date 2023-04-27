@@ -4,7 +4,7 @@
       <!-- ユーザーネーム -->
         <div class= "col-12">
           <h2 class= "left">
-            <%= link_to public_customer_path(@customer.id) do %>
+            <%= link_to customer_path(@customer.id) do %>
               <%= image_tag @customer.get_profile_image(80,80) %>
               <%= @customer.user_name %>
             <% end %>

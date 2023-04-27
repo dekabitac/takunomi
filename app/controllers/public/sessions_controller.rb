@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   before_action :configure_permitted_parameters, only: [:create]
 
   def after_sign_in_path_for(resource)
-    public_posts_path
+    customer_path(current_customer.id)
   end
 
   def after_sign_out_path_for(resource)
@@ -18,7 +18,7 @@ class Public::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   # def create
-  #   super
+  # super
   # end
 
   # DELETE /resource/sign_out
