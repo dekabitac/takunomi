@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :registrations, only: [:new, :create]
-    resources :sessions, only: [:new, :create, :destroy]
     resources :customers, only: [:show, :edit, :update] do
+      resources :sessions, only: [:new, :create, :destroy]
       #member do
         #get :favorites
       #end
