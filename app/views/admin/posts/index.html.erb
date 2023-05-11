@@ -19,7 +19,7 @@
               <div>
                 <tr>
                   <th class= "post-image">
-                    <%= link_to public_post_path(post.id) do %>
+                    <%= link_to post_path(post.id) do %>
                       <% if post.image.attached? %>
                         <%= image_tag post.image, size: "225x225", class: "img-fluid" %>
                       <% else %>
