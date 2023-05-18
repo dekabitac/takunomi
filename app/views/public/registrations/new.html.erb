@@ -11,16 +11,16 @@
         <div class= "col-12">
           <table class= "table">
             <tr>
-              <th><%= f.label "メールアドレス" %></th>
+              <th>メールアドレス</th>
               <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
             </tr>
             <tr>
-              <th><%= f.label "ユーザーネーム(15文字以内)" %></th>
+              <th>ユーザーネーム(15文字以内)</th>
               <td><%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %></td>
             </tr>
             <tr>
               <th>
-                <%= f.label "パスワード" %>
+                パスワード
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> 文字以上)</em>
                 <% end %>
@@ -28,7 +28,7 @@
               <td><%= f.password_field :password, autocomplete: "new-password" %></td>
             </tr>
             <tr>
-              <th><%= f.label "パスワード確認用" %></th>
+              <th>パスワード確認用</th>
               <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
             </tr>
             <tr>
