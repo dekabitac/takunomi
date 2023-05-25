@@ -9,9 +9,9 @@
           <td>
             <%= genre.text_field :genre_name %>
             <%= genre.submit "変更を保存", class: "btn btn-success" %>
-            <%= genre.submit "削除", class: "btn btn-success" %>
           </td>
           <% end %>
+          <%= link_to "削除", post, method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"}, class: 'btn btn-danger' %>
         </div>
       </div>
     </div>

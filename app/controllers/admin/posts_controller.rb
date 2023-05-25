@@ -1,5 +1,5 @@
 class Admin::PostsController < ApplicationController
-
+  before_action :authenticate_admin!, except: [:index, :show]
   def new
     @post = Post.new
     @genres = Genre.all
