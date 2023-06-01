@@ -1,10 +1,12 @@
 <main>
   <div class= "container">
-    <div class="row">
-      <div class= "col-10">
+    <div class= "row">
+      <div class= "col-6">
         <h2 class= "bg-secondary border rounded">管理者ログイン</h2>
       </div>
-      <div class="col-12">
+    </div>
+    <div class= "row">
+      <div class= "col-12">
         <div class= "d-flex justify-content-center">
           <%= form_for(resource, as: resource_name, url: admin_session_path(resource_name)) do |f| %>
             <table class= "table-borderless">
