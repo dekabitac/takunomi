@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :sessions, only: [:new, :create, :destroy]
-    resources :posts, only: [:index, :show, :destroy]
+    resources :posts, only: [:index, :show, :edit, :destroy]
     resources :genres, only: [:index, :new, :create, :show, :edit, :destroy, :update]
     resources :customers, only: [:index, :show, :edit, :update]
   end

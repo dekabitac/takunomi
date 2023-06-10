@@ -19,7 +19,7 @@
               <div>
                 <tr>
                   <th class= "post-image">
-                    <%= link_to post_path(post.id) do %>
+                    <%= link_to admin_post_path(post.id) do %>
                       <% if post.image.attached? %>
                         <%= image_tag post.image, size: "225x225", class: "img-fluid" %>
                       <% else %>
@@ -28,9 +28,6 @@
                     <% end %>
                   </th>
                 </tr>
-                <button type="button" class="btn btn-danger">
-                  <%= link_to '削除', admin_post_path(post), class: "text-white", method: :delete, "data-confirm" => "本当に削除しますか？" %>
-                </button>
                 <tr>
                   <th>
                     <div class= "post-text">
