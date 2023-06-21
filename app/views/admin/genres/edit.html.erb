@@ -5,14 +5,14 @@
       <div class= "col-lg-9">
         <div class= "m-3">
           <%= form_with model: @genre, url: admin_genre_path(@genre.id) do |genre| %>
-          <th><h4>＜ジャンル名＞</h4></th>
+          <th><h4>ジャンル名</h4></th>
           <td>
             <%= genre.text_field :genre_name %>
             <%= genre.submit "変更を保存", class: "btn btn-success" %>
             <%= link_to "削除",  admin_genre_path(@genre.id), method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"}, class: 'btn btn-danger' %>
           </td>
           <% end %>
-          
+
         </div>
       </div>
     </div>
