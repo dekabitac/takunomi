@@ -27,7 +27,7 @@
         </tr>
         <tr>
           <td><%= link_to "編集する",  edit_admin_customer_url(@customer.id), class: "btn btn-sm btn-success" %></td>
-          <td><%= link_to "投稿一覧", public_customer_path(@customer.id) %></td>
+          <td><%= link_to "投稿一覧", customer_path(@customer.id) %></td>
         </tr>
       </table>
     </div>
